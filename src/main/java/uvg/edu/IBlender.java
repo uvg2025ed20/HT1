@@ -1,5 +1,12 @@
 package uvg.edu;
 
+/**
+ * Interface for the Blender program.
+ * Integrantes:
+ *  * - Pablo Vásquez
+ *  * - Carlos López
+ *  * - Angel Sanabria
+ */
 
 public interface IBlender {
 
