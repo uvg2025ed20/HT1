@@ -44,7 +44,7 @@ public class App
                     licuadora.vaciar();
                     break;
                 case 8:
-                    System.out.println("Adiooooos");
+                    System.out.println("Hasta la proxima!!");
                     break;
                 default:
                     System.out.println("Opción invalida\n");
