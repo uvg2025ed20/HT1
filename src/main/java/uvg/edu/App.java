@@ -11,61 +11,71 @@ public class App
 {
     public static void main( String[] args )
     {
-        Licuadora licuadora = new Licuadora();
+        Blender blender = new Blender();
         Scanner scanner = new Scanner(System.in);
-        int opcion = 0;
+        int option = 0;
 
         do{
             menu();
-            opcion = scanner.nextInt();
+            option = scanner.nextInt();
 
-            switch (opcion){
+            switch (option){
                 case 1:
-                    licuadora.encender();
+                    System.out.println(blender.switchPowerStatus() == 1 ? "Blender is ON" : "Blender is OFF");
                     break;
                 case 2:
-                    System.out.print("Ingrese el ingrediente:    ");
-                    String ingrediente = scanner.next();
-                    licuadora.llenar(ingrediente);
+                    System.out.print("Enter product: ");
+                    String product = scanner.nextLine();
+                    System.out.print("Enter amount in ml: ");
+                    float amount = scanner.nextFloat();
+                    if (blender.isFull()) {
+                        System.out.println("Blender is already full.");
+                    } else {
+                        blender.fillBlender(product, amount);
+                        System.out.println("Blender filled with " + amount + "ml of " + product);
+                    }
                     break;
                 case 3:
-                    licuadora.aumentarVelocidad();
+                    blender.increaseSpeed();
+                    System.out.println("Speed increased to: " + blender.checkSpeed());
                     break;
                 case 4:
-                    licuadora.disminuirVelocidad();
+                    blender.decreaseSpeed();
+                    System.out.println("Speed decreased to: " + blender.checkSpeed());
                     break;
                 case 5:
-                    System.out.println("La velocidad de la licuadora es: " + licuadora.obtenerVelocidad() + "\n");
+                    System.out.println("Current speed: " + blender.checkSpeed());
                     break;
                 case 6:
-                    System.out.println("La licuadora esta llena: " + licuadora.estaLlena() + "\n");
+                    System.out.println("Blender capacity: " + blender.actualCapacity() + "ml");
                     break;
                 case 7:
-                    licuadora.vaciar();
+                    blender.emptyBlender();
+                    System.out.println("Blender is now empty.");
                     break;
                 case 8:
-                    System.out.println("Hasta la proxima!!");
+                    System.out.println("Chau");
                     break;
                 default:
-                    System.out.println("Opción invalida\n");
-                    break;
+                    System.out.println("Invalid option. Please try again.");
             }
 
-        }while(opcion != 8);
+        }while(option != 8);
 
         scanner.close();
 
     }
 
     static void menu(){
-        System.out.println("1. Encender");
-        System.out.println("2. Llenar");
-        System.out.println("3. Aumentar velocidad");
-        System.out.println("4. Disminuir velocidad");
-        System.out.println("5. Obtener velocidad");
-        System.out.println("6. Esta llena");
-        System.out.println("7. Vaciar");
-        System.out.println("8. Salir del programa\n");
-        System.out.print("Seleccione una opción:   ");
+        System.out.println("\nBlender Menu:");
+        System.out.println("1. Toggle Power");
+        System.out.println("2. Fill Blender");
+        System.out.println("3. Increase Speed");
+        System.out.println("4. Decrease Speed");
+        System.out.println("5. Check Speed");
+        System.out.println("6. Check Capacity");
+        System.out.println("7. Empty Blender");
+        System.out.println("8. Exit");
+        System.out.print("Choose an option: ");
     }
 }
