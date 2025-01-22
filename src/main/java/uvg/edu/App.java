@@ -24,17 +24,21 @@ public class App
                     System.out.println(blender.switchPowerStatus() == 1 ? "Blender is ON" : "Blender is OFF");
                     break;
                 case 2:
-                    System.out.print("Enter product: ");
-                    String product = scanner.nextLine();
-                    System.out.print("Enter amount in ml: ");
-                    float amount = scanner.nextFloat();
-                    if (blender.isFull()) {
-                        System.out.println("Blender is already full.");
-                    } else {
-                        blender.fillBlender(product, amount);
-                        System.out.println("Blender filled with " + amount + "ml of " + product);
+                    if (blender.checkSpeed() == 0){
+                        System.out.print("Enter product: ");
+                        String product = scanner.nextLine();
+                        System.out.print("Enter amount in ml: ");
+                        float amount = scanner.nextFloat();
+                        if (blender.isFull()) {
+                            System.out.println("Blender is already full.");
+                        } else {
+                            blender.fillBlender(product, amount);
+                            System.out.println("Blender filled with " + amount + "ml of " + product);
+                        }
+                        break;
+                    }else {
+                        System.out.println("Blender is on. Please turn it off before filling.");
                     }
-                    break;
                 case 3:
                     blender.increaseSpeed();
                     System.out.println("Speed increased to: " + blender.checkSpeed());
@@ -50,8 +54,12 @@ public class App
                     System.out.println("Blender capacity: " + blender.actualCapacity() + "ml");
                     break;
                 case 7:
-                    blender.emptyBlender();
-                    System.out.println("Blender is now empty.");
+                    if (blender.checkSpeed() == 0){
+                        blender.emptyBlender();
+                        System.out.println("Blender emptied.");
+                    }else {
+                        System.out.println("Blender is on. Please turn it off before emptying.");
+                    }
                     break;
                 case 8:
                     System.out.println("Chau");
