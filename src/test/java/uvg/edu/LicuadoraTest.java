@@ -16,7 +16,7 @@ public class LicuadoraTest {
     @Test
     public void testEncender() {
         licuadora.encender();
-        assertTrue(licuadora.encendida);
+        assertTrue(licuadora.isEncendida());
     }
 
     @Test

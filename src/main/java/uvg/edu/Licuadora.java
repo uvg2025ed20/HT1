@@ -2,7 +2,7 @@ package uvg.edu;
 
 public class Licuadora implements ILicuadora {
 
-    public boolean encendida = false;
+    private boolean encendida = false;
     private boolean llena = false;
     private int velocidad = 0;
 
@@ -10,6 +10,10 @@ public class Licuadora implements ILicuadora {
         this.encendida = false;
         this.llena = false;
         this.velocidad = 0;
+    }
+
+    public boolean isEncendida() {
+        return encendida;
     }
 
     public void encender() {
