@@ -14,7 +14,7 @@ public class Blender implements IBlender {
         this.speed = 0;
         this.product = "";
         this.capacity = 0;
-        this.maxCapacity = 1000;
+        this.maxCapacity = 532;
     }
 
     @Override

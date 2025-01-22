@@ -27,8 +27,10 @@ public class App
                     if (blender.checkSpeed() == 0){
                         System.out.print("Enter product: ");
                         String product = scanner.nextLine();
+                        scanner.nextLine();
                         System.out.print("Enter amount in ml: ");
                         float amount = scanner.nextFloat();
+                        scanner.nextLine();
                         if (blender.isFull()) {
                             System.out.println("Blender is already full.");
                         } else {
