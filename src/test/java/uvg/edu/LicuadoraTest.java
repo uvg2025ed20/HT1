@@ -1,8 +1,8 @@
+package uvg.edu;
+
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
-package uvg.edu;
 
 public class LicuadoraTest {
 
